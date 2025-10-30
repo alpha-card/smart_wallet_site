@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="220" viewBox="0 0 220 220">
+  <defs>
+    <style>
+      .bg{fill:#0b1020;}
+      .ring{fill:none;stroke-width:22;stroke-linecap:round}
+    </style>
+  </defs>
+  <circle cx="110" cy="110" r="100" class="bg"/>
+  <circle cx="110" cy="110" r="80" fill="#0b1020"/>
+  <g transform="rotate(-90 110 110)">
+    <circle class="ring" stroke="#5b8cff" cx="110" cy="110" r="80" stroke-dasharray="300 210"/>
+    <circle class="ring" stroke="#34d399" cx="110" cy="110" r="80" stroke-dasharray="160 350" stroke-dashoffset="300"/>
+    <circle class="ring" stroke="#a78bfa" cx="110" cy="110" r="80" stroke-dasharray="70 440" stroke-dashoffset="460"/>
+  </g>
+</svg>
+

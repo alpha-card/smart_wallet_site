@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <radialGradient id="b1" cx="35%" cy="30%" r="40%">
+      <stop offset="0%" stop-color="#5b8cff" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#5b8cff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="b2" cx="70%" cy="25%" r="35%">
+      <stop offset="0%" stop-color="#00e6a8" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#00e6a8" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#11182a"/>
+      <stop offset="100%" stop-color="#0c1222"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="1200" height="800" rx="24" fill="url(#panel)"/>
+  <circle cx="380" cy="220" r="220" fill="url(#b1)"/>
+  <circle cx="820" cy="200" r="200" fill="url(#b2)"/>
+  <g fill="none" stroke="#1e2742" stroke-width="2" opacity="0.7">
+    <rect x="140" y="320" width="920" height="280" rx="16"/>
+    <line x1="140" y1="380" x2="1060" y2="380"/>
+    <line x1="140" y1="440" x2="1060" y2="440"/>
+    <line x1="140" y1="500" x2="1060" y2="500"/>
+  </g>
+  <g>
+    <rect x="200" y="360" width="120" height="36" rx="10" fill="#1a2140" stroke="#273055"/>
+    <rect x="340" y="360" width="120" height="36" rx="10" fill="#1a2140" stroke="#273055"/>
+    <rect x="480" y="360" width="120" height="36" rx="10" fill="#1a2140" stroke="#273055"/>
+    <rect x="620" y="360" width="120" height="36" rx="10" fill="#1a2140" stroke="#273055"/>
+  </g>
+</svg>
+
