@@ -69,8 +69,6 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     if (nav && nav.classList.contains('open')) {
       setNavState(false);
     }
-  });
-});
 
 // Scroll-triggered animations
 if (!prefersReducedMotion.matches) {
@@ -92,4 +90,24 @@ if (!prefersReducedMotion.matches) {
   });
 }
 
+const revealTargets = document.querySelectorAll(
+  '.feature-card, .security-grid article, .price-card, .testimonial, .cta-form'
+);
 
+if (!prefersReducedMotion.matches && 'IntersectionObserver' in window) {
+  const observer = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          obs.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+
+  revealTargets.forEach((el) => observer.observe(el));
+} else {
+  revealTargets.forEach((el) => el.classList.add('in-view'));
+}

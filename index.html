@@ -3,11 +3,17 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Smart Wallet — Cash-back deals made simple</title>
-    <meta name="description" content="Discover and activate cash-back offers effortlessly. Save more with a smarter wallet." />
-    <meta name="keywords" content="cash-back, card-linked offers, rewards, smart wallet" />
-    <meta property="og:title" content="Smart Wallet — Cash-back deals made simple" />
-    <meta property="og:description" content="Discover and activate cash-back offers effortlessly. Save more with a smarter wallet." />
+    <title>Smart Wallet — Rewards infrastructure for every shopper</title>
+    <meta
+      name="description"
+      content="Smart Wallet connects cards, surfaces the best offers, and activates rewards automatically. Give your customers a polished, modern money experience."
+    />
+    <meta name="keywords" content="smart wallet, rewards, automation, finance, plaid alternative" />
+    <meta property="og:title" content="Smart Wallet — Rewards infrastructure for every shopper" />
+    <meta
+      property="og:description"
+      content="Smart Wallet connects cards, surfaces the best offers, and activates rewards automatically."
+    />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="/" />
     <meta property="og:image" content="hero-dashboard.svg" />
@@ -16,22 +22,25 @@
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to main content</a>
     <header class="site-header">
       <div class="container header-inner">
-        <a class="logo" href="#">Smart Wallet</a>
+        <a class="logo" href="#overview">Smart Wallet</a>
         <nav class="nav" id="site-nav">
           <a href="#benefits">Benefits</a>
           <a href="#insights">Insights</a>
           <a href="#optimization">Optimization</a>
           <a href="#how">How it works</a>
           <a href="#pricing">Pricing</a>
-          <a href="#faq">FAQ</a>
-          <a href="#cta" class="btn btn-primary">Get Started</a>
+          <a href="#cta" class="btn btn-secondary">Sign in</a>
+          <a href="#cta" class="btn btn-primary">Get started</a>
         </nav>
         <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-controls="site-nav" aria-expanded="false">☰</button>
       </div>
@@ -55,8 +64,8 @@
               <span class="badge">🌎 Works worldwide</span>
             </div>
             <div class="hero-cta">
-              <a href="#cta" class="btn btn-primary btn-lg">Join the waitlist</a>
-              <a href="#how" class="btn btn-ghost">How it works</a>
+              <a href="#cta" class="btn btn-primary btn-lg">Talk to sales</a>
+              <a href="#experience" class="btn btn-ghost">View documentation</a>
             </div>
             <div class="hero-meta">
               <div>
@@ -175,8 +184,13 @@
               <small>next 30 days</small>
             </div>
           </div>
-        </div>
-      </section>
+          <div class="split-media" aria-hidden="true">
+            <div class="code-card">
+              <div class="code-card__header">
+                <span>sdk/link.js</span>
+                <span class="status">Live</span>
+              </div>
+              <pre><code>import { SmartWalletLink } from '@smartwallet/web';
 
       <section id="flow" class="section alt">
         <div class="container flow">
@@ -200,11 +214,10 @@
               <div class="flow-chip"><span>Auto Cash-back</span><small>Deposited to your wallet</small></div>
             </div>
           </div>
-          <p class="flow-caption">We privately select the best card and relevant offer—no bank login required.</p>
         </div>
       </section>
 
-      <section id="optimization" class="section">
+      <section class="section section-light" id="security">
         <div class="container">
           <h2 class="section-title">AI‑Powered Optimization</h2>
           <p class="section-sub">See how Smart Wallet optimizes your spend across cards to maximize rewards.</p>
@@ -248,68 +261,65 @@
                 <strong>$4.80</strong>
               </div>
             </div>
+            <p>
+              Keep users in control with explicit consent, granular permissions, and enterprise-grade monitoring across your
+              entire rewards lifecycle.
+            </p>
+          </div>
+          <div class="security-grid">
+            <article>
+              <h3>Robust compliance</h3>
+              <p>SOC 2 Type II, PCI DSS, GDPR, and CCPA controls are built into every integration.</p>
+            </article>
+            <article>
+              <h3>Real-time monitoring</h3>
+              <p>Live dashboards track reward issuance, breakage, and anomalies with alerting hooks.</p>
+            </article>
+            <article>
+              <h3>Consent by design</h3>
+              <p>Flexible consent screens and audit trails ensure customers know what data they’re sharing.</p>
+            </article>
           </div>
         </div>
       </section>
 
-      <section id="how" class="section alt">
-        <div class="container steps">
-          <h2 class="section-title">How it works</h2>
-          <ol class="step-list">
-            <li>
-              <span class="step-num">1</span>
-              <div>
-                <h3>Connect</h3>
-                <p>Securely link your card via Plaid to enable offer discovery.</p>
-              </div>
-            </li>
-            <li>
-              <span class="step-num">2</span>
-              <div>
-                <h3>Discover</h3>
-                <p>We surface relevant offers and match them to your spending.</p>
-              </div>
-            </li>
-            <li>
-              <span class="step-num">3</span>
-              <div>
-                <h3>Save</h3>
-                <p>Shop as usual and watch your savings add up automatically.</p>
-              </div>
-            </li>
-          </ol>
-        </div>
-      </section>
-
-      <section id="pricing" class="section">
+      <section class="section" id="pricing">
         <div class="container">
-          <h2 class="section-title">Simple pricing</h2>
+          <div class="section-header">
+            <div>
+              <span class="eyebrow">Pricing</span>
+              <h2>Flexible plans that scale with your program</h2>
+            </div>
+            <p>Start with a pilot tier or scale to enterprise-grade rollouts with transparent pricing and volume discounts.</p>
+          </div>
           <div class="pricing-grid">
-            <div class="price-card">
-              <h3>Free</h3>
-              <p class="price">$0</p>
-              <ul>
-                <li>Offer discovery</li>
-                <li>Basic insights</li>
-                <li>Email alerts</li>
+            <article class="price-card">
+              <span class="plan-label">Growth</span>
+              <h3>$499<span>/month</span></h3>
+              <p>Perfect for launching your first rewards journey.</p>
+              <ul role="list">
+                <li>Up to 50k linked accounts</li>
+                <li>Standard connectivity &amp; webhooks</li>
+                <li>Email support</li>
               </ul>
-              <a href="#cta" class="btn btn-secondary">Get started</a>
-            </div>
-            <div class="price-card featured">
-              <h3>Pro</h3>
-              <p class="price">$4.99/mo</p>
-              <ul>
-                <li>Auto-activation assistant</li>
-                <li>Real-time notifications</li>
-                <li>Priority support</li>
+              <a class="btn btn-secondary" href="#cta">Start pilot</a>
+            </article>
+            <article class="price-card price-card--featured">
+              <span class="plan-label">Scale</span>
+              <h3>Let’s chat</h3>
+              <p>Co-design custom programs with a dedicated success team.</p>
+              <ul role="list">
+                <li>Unlimited accounts &amp; offers</li>
+                <li>Advanced analytics workspace</li>
+                <li>Dedicated integration support</li>
               </ul>
-              <a href="#cta" class="btn btn-primary">Try Pro</a>
-            </div>
+              <a class="btn btn-primary" href="#cta">Talk to sales</a>
+            </article>
           </div>
         </div>
       </section>
 
-      <section class="section alt" id="testimonials">
+      <section class="section section-light" id="testimonials">
         <div class="container">
           <h2 class="section-title">What users say</h2>
           <div class="testimonials-grid">
@@ -329,30 +339,32 @@
               <footer>— Dan W.</footer>
             </blockquote>
           </div>
-        </div>
-      </section>
-
-      <section id="faq" class="section alt">
-        <div class="container">
-          <h2 class="section-title">Frequently asked questions</h2>
-          <div class="faq-list">
-            <details>
-              <summary>Is this secure?</summary>
-              <p>Yes. We use industry-standard encryption and never store credentials. Connections are handled by Plaid.</p>
-            </details>
-            <details>
-              <summary>Which cards are supported?</summary>
-              <p>Most major US banks and card issuers. Coverage continues to expand.</p>
-            </details>
-            <details>
-              <summary>How do I get started?</summary>
-              <p>Click Get Started below to create an account and link your card.</p>
-            </details>
+          <div class="testimonial-grid">
+            <figure class="testimonial">
+              <blockquote>
+                “Smart Wallet let us ship an end-to-end card-linked experience in six weeks. Activation is up 42% and the team
+                sleeps better with monitoring built in.”
+              </blockquote>
+              <figcaption>
+                <strong>Jordan Smith</strong>
+                <span>VP Product, Northwind Bank</span>
+              </figcaption>
+            </figure>
+            <figure class="testimonial">
+              <blockquote>
+                “We replaced a patchwork of scripts with Smart Wallet’s APIs. Offer performance dashboards help us iterate on
+                campaigns every week.”
+              </blockquote>
+              <figcaption>
+                <strong>Priya Desai</strong>
+                <span>Head of Rewards, Vista</span>
+              </figcaption>
+            </figure>
           </div>
         </div>
       </section>
 
-      <section id="cta" class="section cta">
+      <section class="section cta" id="cta">
         <div class="container cta-inner">
           <h2>Save more on your next purchase</h2>
           <p>Join free in under 60 seconds.</p>
@@ -367,20 +379,21 @@
 
     <footer class="site-footer">
       <div class="container footer-inner">
-        <div>© <span id="year"></span> Smart Wallet</div>
-        <nav class="footer-nav">
-          <a href="#">Privacy</a>
-          <a href="#">Terms</a>
-          <a href="#">Contact</a>
-        </nav>
+        <div>
+          <a class="logo" href="#overview">Smart Wallet</a>
+          <p>Powering real-time rewards and loyalty for modern finance teams.</p>
+        </div>
+        <div class="footer-nav">
+          <a href="#platform">Platform</a>
+          <a href="#experience">Experience</a>
+          <a href="#security">Security</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#cta">Contact</a>
+        </div>
+        <p class="footer-copy">© <span id="year"></span> Smart Wallet Inc.</p>
       </div>
     </footer>
 
-    <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"Organization","name":"Smart Wallet","url":"/","logo":"favicon.svg","sameAs":[]}
-    </script>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
   </body>
-  </html>
-
-
+</html>
