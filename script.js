@@ -1,8 +1,9 @@
 const navToggle = document.getElementById('nav-toggle');
 const nav = document.getElementById('site-nav');
-const prefersReducedMotion = window.matchMedia
-  ? window.matchMedia('(prefers-reduced-motion: reduce)')
-  : { matches: false };
+const prefersReducedMotion =
+  typeof window.matchMedia === 'function'
+    ? window.matchMedia('(prefers-reduced-motion: reduce)')
+    : { matches: false };
 
 const setNavState = (isOpen) => {
   if (!nav || !navToggle) return;
@@ -38,37 +39,56 @@ if (year) {
 const form = document.querySelector('.cta-form');
 if (form) {
   const message = form.querySelector('.form-success');
-  let timeoutId;
+  let messageTimeout;
   form.addEventListener('submit', (event) => {
     event.preventDefault();
     if (message) {
       message.hidden = false;
-      clearTimeout(timeoutId);
-      timeoutId = setTimeout(() => {
+      message.classList.add('visible');
+      clearTimeout(messageTimeout);
+      messageTimeout = setTimeout(() => {
         message.hidden = true;
+        message.classList.remove('visible');
       }, 4000);
     }
     form.reset();
   });
 }
 
-document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-  anchor.addEventListener('click', (event) => {
-    const id = anchor.getAttribute('href');
-    if (!id || id === '#') return;
-    const target = document.querySelector(id);
+// Smooth scroll for in-page links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
     if (!target) return;
 
     if (!prefersReducedMotion.matches) {
-      event.preventDefault();
+      e.preventDefault();
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
     if (nav && nav.classList.contains('open')) {
       setNavState(false);
     }
+
+// Scroll-triggered animations
+if (!prefersReducedMotion.matches) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.25 });
+
+  document.querySelectorAll('#optimization, .reveal, .flow-card, .flow-chip').forEach(el => {
+    observer.observe(el);
   });
-});
+} else {
+  document.querySelectorAll('#optimization, .reveal, .flow-card, .flow-chip').forEach(el => {
+    el.classList.add('in-view');
+  });
+}
 
 const revealTargets = document.querySelectorAll(
   '.feature-card, .security-grid article, .price-card, .testimonial, .cta-form'
