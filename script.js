@@ -1,5 +1,9 @@
 const navToggle = document.getElementById('nav-toggle');
 const nav = document.getElementById('site-nav');
+const prefersReducedMotion =
+  typeof window.matchMedia === 'function'
+    ? window.matchMedia('(prefers-reduced-motion: reduce)')
+    : { matches: false };
 
 const setNavState = (isOpen) => {
   if (!nav || !navToggle) return;
@@ -19,6 +23,12 @@ document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape' && nav && nav.classList.contains('open')) {
     setNavState(false);
   }
+});
+
+document.addEventListener('click', (event) => {
+  if (!nav || !navToggle || !nav.classList.contains('open')) return;
+  if (nav.contains(event.target) || navToggle.contains(event.target)) return;
+  setNavState(false);
 });
 
 const year = document.getElementById('year');
@@ -49,28 +59,37 @@ if (form) {
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
     const target = document.querySelector(a.getAttribute('href'));
-    if (target) {
+    if (!target) return;
+
+    if (!prefersReducedMotion.matches) {
       e.preventDefault();
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      if (nav && nav.classList.contains('open')) {
-        setNavState(false);
-      }
+    }
+
+    if (nav && nav.classList.contains('open')) {
+      setNavState(false);
     }
   });
 });
 
 // Scroll-triggered animations
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('in-view');
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.25 });
+if (!prefersReducedMotion.matches) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.25 });
 
-document.querySelectorAll('#optimization, .reveal, .flow-card, .flow-chip').forEach(el => {
-  observer.observe(el);
-});
+  document.querySelectorAll('#optimization, .reveal, .flow-card, .flow-chip').forEach(el => {
+    observer.observe(el);
+  });
+} else {
+  document.querySelectorAll('#optimization, .reveal, .flow-card, .flow-chip').forEach(el => {
+    el.classList.add('in-view');
+  });
+}
 
 

@@ -12,6 +12,7 @@
     <meta property="og:url" content="/" />
     <meta property="og:image" content="hero-dashboard.svg" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#04060f" />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -19,11 +20,13 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
     <header class="site-header">
       <div class="container header-inner">
         <a class="logo" href="#">Smart Wallet</a>
         <nav class="nav" id="site-nav">
           <a href="#benefits">Benefits</a>
+          <a href="#insights">Insights</a>
           <a href="#optimization">Optimization</a>
           <a href="#how">How it works</a>
           <a href="#pricing">Pricing</a>
@@ -34,7 +37,7 @@
       </div>
     </header>
 
-    <main>
+    <main id="main">
       <section class="hero">
         <div class="container hero-inner">
           <div class="hero-copy">
@@ -133,6 +136,43 @@
               <span class="card-icon">🛡️</span>
               <h3>Privacy-first security</h3>
               <p>Zero credential storage, encrypted syncing, and granular controls keep your cards safe.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="insights" class="section insights">
+        <div class="container insights-inner">
+          <div class="insights-copy reveal">
+            <span class="insights-pill">Unified money view</span>
+            <h2>See every account in one command center</h2>
+            <p>
+              Link checking, savings, credit cards, and loyalty wallets to watch Smart Wallet surface real-time trends and
+              projected rewards before you spend.
+            </p>
+            <ul class="insights-list">
+              <li>
+                <strong>Dynamic cash-flow tiles</strong>
+                <span>Spot surplus or overspend at a glance, across all institutions.</span>
+              </li>
+              <li>
+                <strong>Smart categories</strong>
+                <span>Automatic grouping mirrors how you actually budget.</span>
+              </li>
+              <li>
+                <strong>Weekly briefing emails</strong>
+                <span>Actionable highlights on newly unlocked offers and lapsing deals.</span>
+              </li>
+            </ul>
+            <div class="insights-footnote">Inspired by the best of Rocket Money, Plaid, and Monarch—tailored for rewards hunters.</div>
+          </div>
+          <div class="insights-media reveal" aria-hidden="true">
+            <div class="insights-glow"></div>
+            <img src="hero-illustration.svg" alt="" />
+            <div class="insights-card">
+              <span class="insights-card-label">Projected rewards</span>
+              <strong>$86.40</strong>
+              <small>next 30 days</small>
             </div>
           </div>
         </div>
