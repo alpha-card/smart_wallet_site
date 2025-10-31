@@ -1,11 +1,25 @@
 const navToggle = document.getElementById('nav-toggle');
 const nav = document.getElementById('site-nav');
 
+const setNavState = (isOpen) => {
+  if (!nav || !navToggle) return;
+  nav.classList.toggle('open', isOpen);
+  navToggle.setAttribute('aria-expanded', String(isOpen));
+  document.body.classList.toggle('nav-open', isOpen);
+};
+
 if (navToggle && nav) {
   navToggle.addEventListener('click', () => {
-    nav.classList.toggle('open');
+    const isOpen = !nav.classList.contains('open');
+    setNavState(isOpen);
   });
 }
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && nav && nav.classList.contains('open')) {
+    setNavState(false);
+  }
+});
 
 const year = document.getElementById('year');
 if (year) {
@@ -14,8 +28,20 @@ if (year) {
 
 const form = document.querySelector('.cta-form');
 if (form) {
-  form.addEventListener('submit', () => {
-    alert('Thanks! We\'ll be in touch soon.');
+  const message = form.querySelector('.form-success');
+  let messageTimeout;
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    if (message) {
+      message.hidden = false;
+      message.classList.add('visible');
+      clearTimeout(messageTimeout);
+      messageTimeout = setTimeout(() => {
+        message.hidden = true;
+        message.classList.remove('visible');
+      }, 4000);
+    }
+    form.reset();
   });
 }
 
@@ -26,7 +52,9 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     if (target) {
       e.preventDefault();
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      if (nav && nav.classList.contains('open')) nav.classList.remove('open');
+      if (nav && nav.classList.contains('open')) {
+        setNavState(false);
+      }
     }
   });
 });

@@ -30,7 +30,7 @@
           <a href="#faq">FAQ</a>
           <a href="#cta" class="btn btn-primary">Get Started</a>
         </nav>
-        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">☰</button>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-controls="site-nav" aria-expanded="false">☰</button>
       </div>
     </header>
 
@@ -38,23 +38,48 @@
       <section class="hero">
         <div class="container hero-inner">
           <div class="hero-copy">
+            <span class="hero-eyebrow">Smarter rewards, instantly</span>
             <h1>
-              A <span class="accent">wallet</span> that picks your best card so
-              that you earn the most!
+              Upgrade your wallet with
+              <span class="accent">intelligent automation</span>
             </h1>
+            <p class="hero-subtitle">
+              Smart Wallet learns your spending habits, unlocks hidden offers, and nudges you toward the perfect card before you tap.
+            </p>
             <div class="badge-row">
               <span class="badge">🔒 Bank‑grade security</span>
-              <span class="badge">💳 Works with major cards</span>
-              <span class="badge">⚡ Intelligent optimization</span>
+              <span class="badge">⚡ AI offer matching</span>
+              <span class="badge">🌎 Works worldwide</span>
             </div>
             <div class="hero-cta">
               <a href="#cta" class="btn btn-primary btn-lg">Join the waitlist</a>
               <a href="#how" class="btn btn-ghost">How it works</a>
             </div>
-            <div class="trust">No spam. Bank-grade security.</div>
+            <div class="hero-meta">
+              <div>
+                <strong>+28%</strong>
+                <span>Average lift in cash-back</span>
+              </div>
+              <div>
+                <strong>2M+</strong>
+                <span>Transactions optimized</span>
+              </div>
+            </div>
+            <div class="trust">Trusted by savvy spenders in 140+ cities.</div>
           </div>
           <div class="hero-media">
+            <div class="hero-glow" aria-hidden="true"></div>
             <img class="hero-img" src="hero-dashboard.svg" alt="Smart Wallet dashboard preview" />
+            <div class="hero-card hero-card--recommendation">
+              <div class="hero-card-label">Next best card</div>
+              <strong>Compass Rewards Visa</strong>
+              <span class="hero-card-note">+5% groceries unlocked</span>
+            </div>
+            <div class="hero-card hero-card--offer">
+              <div class="hero-card-label">Nearby offer</div>
+              <strong>Urban Market</strong>
+              <span class="hero-card-note">$15 back on $60+</span>
+            </div>
           </div>
         </div>
       </section>
@@ -62,13 +87,31 @@
       <section class="logos">
         <div class="container logos-inner">
           <div class="logos-title">Seen at merchants like</div>
-          <div class="logo-row">
-            <span class="logo-chip">Merchant A</span>
-            <span class="logo-chip">Merchant B</span>
-            <span class="logo-chip">Merchant C</span>
-            <span class="logo-chip">Merchant D</span>
-            <span class="logo-chip">Merchant E</span>
-          </div>
+          <ul class="logo-row" aria-label="Merchants where Smart Wallet users save">
+            <li class="logo-chip">Urban Market</li>
+            <li class="logo-chip">Northwind Outfitters</li>
+            <li class="logo-chip">AeroFly</li>
+            <li class="logo-chip">Cedar Coffee</li>
+            <li class="logo-chip">Brightline Grocer</li>
+            <li class="logo-chip">Vista Electronics</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="metrics" aria-label="Smart Wallet impact metrics">
+        <div class="container metrics-grid">
+          <article class="metric-card">
+            <div class="metric-value">4.9<span>/5</span></div>
+            <p>Average rating from early members.</p>
+          </article>
+          <article class="metric-card">
+            <div class="metric-value">$420</div>
+            <p>Median annual savings tracked per user.</p>
+          </article>
+          <article class="metric-card">
+            <div class="metric-value">&lt;30s</div>
+            <p>From sign-up to first optimized payment.</p>
+          </article>
         </div>
       </section>
 
@@ -76,9 +119,21 @@
         <div class="container">
           <h2 class="section-title">Why Choose Smart Wallet</h2>
           <div class="features-grid">
-            <div class="card"><h3>Save time</h3><p>Never guess which card to use—get the best match instantly.</p></div>
-            <div class="card"><h3>Maximize rewards</h3><p>Intelligent optimization to earn more points and cash-back.</p></div>
-            <div class="card"><h3>Stay secure</h3><p>Bank‑grade encryption and privacy-first design.</p></div>
+            <div class="card">
+              <span class="card-icon">🧠</span>
+              <h3>Personalized intelligence</h3>
+              <p>Signals from your past purchases predict the most lucrative offer every time you pay.</p>
+            </div>
+            <div class="card">
+              <span class="card-icon">🚀</span>
+              <h3>Live optimization</h3>
+              <p>Instant push nudges and watch complications surface the right card before you reach the checkout.</p>
+            </div>
+            <div class="card">
+              <span class="card-icon">🛡️</span>
+              <h3>Privacy-first security</h3>
+              <p>Zero credential storage, encrypted syncing, and granular controls keep your cards safe.</p>
+            </div>
           </div>
         </div>
       </section>
@@ -88,18 +143,21 @@
           <h2 class="section-title">One Wallet, Multiple Benefits</h2>
           <div class="flow-grid">
             <div class="flow-card">
+              <div class="flow-icon" aria-hidden="true">👤</div>
               <div class="flow-title">You</div>
-              <div class="flow-sub">Your intent, location, and cards you added</div>
+              <div class="flow-sub">Intent, location and cards you sync in seconds.</div>
             </div>
-            <div class="arrow">→</div>
+            <div class="flow-connector" aria-hidden="true"></div>
             <div class="flow-card highlight">
+              <div class="flow-icon" aria-hidden="true">🤖</div>
               <div class="flow-title">Smart Wallet</div>
-              <div class="flow-sub">AI‑powered distribution</div>
+              <div class="flow-sub">AI distribution, merchant intelligence, and offer stacking.</div>
             </div>
-            <div class="arrow">→</div>
+            <div class="flow-connector" aria-hidden="true"></div>
             <div class="flow-column">
-              <div class="flow-chip success"><span>Recommended Card</span></div>
-              <div class="flow-chip"><span>Nearby Offer</span></div>
+              <div class="flow-chip success"><span>Recommended Card</span><small>Max reward for this swipe</small></div>
+              <div class="flow-chip"><span>Nearby Offer</span><small>Redeem in-store or online</small></div>
+              <div class="flow-chip"><span>Auto Cash-back</span><small>Deposited to your wallet</small></div>
             </div>
           </div>
           <p class="flow-caption">We privately select the best card and relevant offer—no bank login required.</p>
@@ -112,9 +170,17 @@
           <p class="section-sub">See how Smart Wallet optimizes your spend across cards to maximize rewards.</p>
           <div class="opt-grid">
             <div class="opt-card reveal">
-              <h3>Spending Through Smart Wallet</h3>
+              <div class="opt-card-head">
+                <span class="opt-tag">Live view</span>
+                <h3>Spending through Smart Wallet</h3>
+              </div>
               <div class="opt-amount">$100.00</div>
               <p class="muted">Intelligently distributed across your cards</p>
+              <div class="opt-bar">
+                <span style="width: 42%"></span>
+                <span style="width: 33%"></span>
+                <span style="width: 25%"></span>
+              </div>
             </div>
             <div class="opt-center reveal" id="donut-container">
               <svg class="donut-svg" width="220" height="220" viewBox="0 0 220 220" aria-label="Optimizing split">
@@ -128,14 +194,17 @@
               <div class="muted small">AI optimizing split</div>
             </div>
             <div class="opt-card reveal">
-              <h3>Rewards Earned</h3>
+              <div class="opt-card-head">
+                <span class="opt-tag success">Insights</span>
+                <h3>Rewards earned</h3>
+              </div>
               <ul class="rewards">
                 <li><span>Travel Card</span><span>3x dining</span></li>
                 <li><span>Cashback Card</span><span>2% back</span></li>
                 <li><span>Points Card</span><span>1.5x all</span></li>
               </ul>
               <div class="opt-total">
-                <span>Total Value:</span>
+                <span>Total Value</span>
                 <strong>$4.80</strong>
               </div>
             </div>
@@ -205,14 +274,17 @@
           <h2 class="section-title">What users say</h2>
           <div class="testimonials-grid">
             <blockquote class="quote">
+              <div class="quote-rating" role="img" aria-label="5 out of 5 stars">★★★★★</div>
               <p>“Found savings at places I already shop. Set-and-forget.”</p>
               <footer>— Alex R.</footer>
             </blockquote>
             <blockquote class="quote">
+              <div class="quote-rating" role="img" aria-label="5 out of 5 stars">★★★★★</div>
               <p>“The alerts helped me catch offers I always missed.”</p>
               <footer>— Priya S.</footer>
             </blockquote>
             <blockquote class="quote">
+              <div class="quote-rating" role="img" aria-label="5 out of 5 stars">★★★★★</div>
               <p>“Paid for itself in the first month.”</p>
               <footer>— Dan W.</footer>
             </blockquote>
@@ -244,9 +316,10 @@
         <div class="container cta-inner">
           <h2>Save more on your next purchase</h2>
           <p>Join free in under 60 seconds.</p>
-          <form class="cta-form" onsubmit="return false;">
+          <form class="cta-form">
             <input type="email" placeholder="Enter your email" aria-label="Email" required />
             <button class="btn btn-primary" type="submit">Get early access</button>
+            <p class="form-success" role="status" hidden>Thanks! We'll be in touch soon.</p>
           </form>
         </div>
       </section>
