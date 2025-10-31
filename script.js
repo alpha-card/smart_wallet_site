@@ -1,81 +1,8 @@
-const root = document.documentElement;
 const navToggle = document.getElementById('nav-toggle');
 const nav = document.getElementById('site-nav');
-const themeToggle = document.getElementById('theme-toggle');
-const themeMeta = document.querySelector('meta[name="theme-color"]');
-const THEME_STORAGE_KEY = 'smartwallet-theme';
-const supportsMatchMedia = typeof window.matchMedia === 'function';
-const prefersReducedMotion = supportsMatchMedia
+const prefersReducedMotion = window.matchMedia
   ? window.matchMedia('(prefers-reduced-motion: reduce)')
   : { matches: false };
-const colorSchemeMedia = supportsMatchMedia
-  ? window.matchMedia('(prefers-color-scheme: dark)')
-  : null;
-
-const updateThemeToggle = (theme) => {
-  if (!themeToggle) return;
-  const isDark = theme === 'dark';
-  themeToggle.setAttribute('aria-pressed', String(isDark));
-  const label = themeToggle.querySelector('.theme-toggle__label');
-  if (label) {
-    label.textContent = isDark ? 'Dark mode' : 'Light mode';
-  }
-};
-
-const applyTheme = (theme, { persist = false } = {}) => {
-  const nextTheme = theme === 'dark' ? 'dark' : 'light';
-  root.setAttribute('data-theme', nextTheme);
-  updateThemeToggle(nextTheme);
-  if (themeMeta) {
-    themeMeta.setAttribute('content', nextTheme === 'dark' ? '#050915' : '#f5f7fb');
-  }
-  if (persist) {
-    try {
-      localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
-    } catch (error) {
-      /* noop */
-    }
-  }
-};
-
-let storedTheme = null;
-try {
-  storedTheme = localStorage.getItem(THEME_STORAGE_KEY);
-} catch (error) {
-  storedTheme = null;
-}
-
-if (storedTheme !== 'light' && storedTheme !== 'dark') {
-  storedTheme = null;
-}
-
-let hasExplicitTheme = typeof storedTheme === 'string';
-const initialTheme =
-  storedTheme || (colorSchemeMedia && colorSchemeMedia.matches ? 'dark' : 'light');
-
-applyTheme(initialTheme);
-
-if (themeToggle) {
-  themeToggle.addEventListener('click', () => {
-    const isDark = root.getAttribute('data-theme') === 'dark';
-    const nextTheme = isDark ? 'light' : 'dark';
-    hasExplicitTheme = true;
-    applyTheme(nextTheme, { persist: true });
-  });
-}
-
-if (colorSchemeMedia) {
-  const handleSchemeChange = (event) => {
-    if (hasExplicitTheme) return;
-    applyTheme(event.matches ? 'dark' : 'light');
-  };
-
-  if (typeof colorSchemeMedia.addEventListener === 'function') {
-    colorSchemeMedia.addEventListener('change', handleSchemeChange);
-  } else if (typeof colorSchemeMedia.addListener === 'function') {
-    colorSchemeMedia.addListener(handleSchemeChange);
-  }
-}
 
 const setNavState = (isOpen) => {
   if (!nav || !navToggle) return;
@@ -100,7 +27,6 @@ document.addEventListener('keydown', (event) => {
 document.addEventListener('click', (event) => {
   if (!nav || !navToggle || !nav.classList.contains('open')) return;
   if (nav.contains(event.target) || navToggle.contains(event.target)) return;
-  if (themeToggle && themeToggle.contains(event.target)) return;
   setNavState(false);
 });
 
@@ -112,23 +38,20 @@ if (year) {
 const form = document.querySelector('.cta-form');
 if (form) {
   const message = form.querySelector('.form-success');
-  let messageTimeout;
+  let timeoutId;
   form.addEventListener('submit', (event) => {
     event.preventDefault();
     if (message) {
       message.hidden = false;
-      message.classList.add('visible');
-      clearTimeout(messageTimeout);
-      messageTimeout = setTimeout(() => {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
         message.hidden = true;
-        message.classList.remove('visible');
       }, 4000);
     }
     form.reset();
   });
 }
 
-// Smooth scroll for in-page links
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener('click', (event) => {
     const id = anchor.getAttribute('href');
@@ -147,22 +70,21 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
-// Scroll-triggered animations
 const revealTargets = document.querySelectorAll(
-  '.reveal, .feature-card, .journey-steps li, .metrics-cards article, .price-card, .testimonial'
+  '.feature-card, .security-grid article, .price-card, .testimonial, .cta-form'
 );
 
-if (!prefersReducedMotion.matches) {
+if (!prefersReducedMotion.matches && 'IntersectionObserver' in window) {
   const observer = new IntersectionObserver(
-    (entries) => {
+    (entries, obs) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('in-view');
-          observer.unobserve(entry.target);
+          obs.unobserve(entry.target);
         }
       });
     },
-    { threshold: 0.25 }
+    { threshold: 0.2 }
   );
 
   revealTargets.forEach((el) => observer.observe(el));
