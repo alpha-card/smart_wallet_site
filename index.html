@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -42,9 +42,29 @@
           <a href="#cta" class="btn btn-secondary">Sign in</a>
           <a href="#cta" class="btn btn-primary">Get started</a>
         </nav>
-        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-controls="site-nav" aria-expanded="false">
-          ☰
-        </button>
+        <div class="header-actions">
+          <button
+            class="theme-toggle"
+            id="theme-toggle"
+            type="button"
+            aria-pressed="false"
+            aria-label="Toggle color theme"
+          >
+            <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true">☀️</span>
+            <span class="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true">🌙</span>
+            <span class="theme-toggle__label">Light mode</span>
+          </button>
+          <button
+            class="nav-toggle"
+            id="nav-toggle"
+            type="button"
+            aria-label="Toggle navigation"
+            aria-controls="site-nav"
+            aria-expanded="false"
+          >
+            ☰
+          </button>
+        </div>
       </div>
     </header>
 
